@@ -5,7 +5,7 @@ import com.sun.istack.NotNull;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "CostumeType")
+@Table(name = "costume_type")
 public class CostumeType {
 
 

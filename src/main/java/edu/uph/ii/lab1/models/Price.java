@@ -7,7 +7,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name = "Price")
+@Table(name = "price")
 public class Price {
 
     @Id

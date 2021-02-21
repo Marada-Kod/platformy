@@ -33,11 +33,13 @@ public class CostumeController {
     private UserRepository userRepository;
 
     @Autowired
-    private  OrderRepository orderRepository;
+    private OrderRepository orderRepository;
 
     @Autowired
     private UserServiceImpla userServiceImpla;
 
+    @Autowired
+    private StatusRepository  statusRepository;
 
     @GetMapping("/list")
     public String showlist(Model model) {
@@ -51,19 +53,18 @@ public class CostumeController {
         return "costume/index";
 
     }
-        @GetMapping("/account")
-        public String showaccount(Model model) {
-            var lista = orderRepository.findAll();
 
-            model.addAttribute("list", lista);
-            model.addAttribute("user", userRepository.findAll());
+    @GetMapping("/account")
+    public String showAccount(Model model) {
+        model.addAttribute("list", orderRepository.findByUser(getLoggedUser()));
+        model.addAttribute("user", userRepository.findAll());
 
-            return "costume/client/account";
-        }
+        return "costume/client/account";
+    }
 
     @GetMapping("/accountall")
     public String showaccountall(Model model) {
-    model.addAttribute("account", userRepository.findAll());
+        model.addAttribute("account", userRepository.findAll());
         return "costume/admin/allaccount";
     }
 
@@ -84,10 +85,11 @@ public class CostumeController {
         model.addAttribute("cena", priceRepository.findAll());
         return "costume/cena";
     }
+
     @GetMapping("/logowanie")
     public String showlogowanie(Model model, @ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
 
-        if (bindingResult.hasErrors()==true) {
+        if (bindingResult.hasErrors() == true) {
             model.addAttribute("User", user);
             return "costume/logowanie";
         }
@@ -97,16 +99,34 @@ public class CostumeController {
 
     }
 
+//
+//    @PostMapping("/zamowienie")
+//    public String saveea(Model model, @ModelAttribute("order") Order order) {
+//        order.setUser(getLoggedUser());
+//        orderRepository.saveAndFlush(order);
+//        model.addAttribute("order", order);
+//
+//        return "costume/client/zamowienie";
+//
+//    }
 
-    @PostMapping("/zamowienie")
-    public String saveea(Model model, @ModelAttribute("order")  Order order){
+    @PostMapping("zamowienie")
+    public String zam(Model model, @ModelAttribute("order") Order order){
+        var status = statusRepository.findAll();
+        order.setStatus(status.get(1));
+        order.setCost(222);
         order.setUser(getLoggedUser());
         orderRepository.saveAndFlush(order);
-        model.addAttribute("order",order);
 
-        return "costume/client/zamowienie";
+        //if(status!=null){order.setStatus(status);}
+        // costumeRepository.saveAndFlush(costume);
+        // model.addAttribute("costume",costume);
+
+        return "costume/client/status1";
 
     }
+
+
     @ModelAttribute("zalogowany")
     protected User getLoggedUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -117,7 +137,7 @@ public class CostumeController {
 
     @GetMapping("/zamowienia")
     public String showzamoweinia(Model model) {
-model.addAttribute("order", orderRepository.findAll());
+        model.addAttribute("order", orderRepository.findAll());
         return "costume/admin/statusyzamowien";
 
 

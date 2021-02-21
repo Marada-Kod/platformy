@@ -24,14 +24,25 @@
 </div>
 
 
-<table border="1">
+<table class="table table-bordered">
     <thead>
     <tr>
         <th>Nazwa</th>
+        <th>Typ</th>
+        <th>Plec</th>
+        <th>Rozmiar</th>
+
+
+
+
     </tr>
     </thead>
-  
+    <tbody th:each="order:${list}" th:object="${order}">
+    <tr>
+        <td>[[*{status.name_status}]] [[*{cost}]]</td>
 
+    </tr>
+    </tbody>
 </table>
 
 

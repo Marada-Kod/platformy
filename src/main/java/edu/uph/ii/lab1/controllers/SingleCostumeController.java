@@ -33,8 +33,6 @@ public class SingleCostumeController {
 
     @Autowired
     private SizeRepository  sizeRepository;
-    @Autowired
-    private StatusRepository  statusRepository;
 
     @GetMapping({"/costumee/{costume}"})
     public String home(Model model, @PathVariable Costume costume) {
@@ -103,17 +101,6 @@ public class SingleCostumeController {
 
     }
 
-    @PostMapping("zamowienie")
-    public String zam(Model model, @ModelAttribute("order") Order order){
-        var status = statusRepository.findAll();
-        order.setStatus(status.get(1));
-        //if(status!=null){order.setStatus(status);}
-       // costumeRepository.saveAndFlush(costume);
-       // model.addAttribute("costume",costume);
-
-        return "costume/client/status1";
-
-    }
 
     @PostMapping("costume/order/{id}")
     public String order(Model model, @ModelAttribute("order") Order order, @PathVariable long id){
