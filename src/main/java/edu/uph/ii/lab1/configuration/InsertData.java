@@ -109,28 +109,28 @@ public class InsertData {
 
                 categoriesRepository.flush();
 
-                var size1 = new Size();
+                var size1 = new CostumeSize();
                 size1.setName_size("do 100cm");
                 sizeRepository.save(size1);
 
-                var size2 = new Size();
+                var size2 = new CostumeSize();
                 size2.setName_size("od 100cm do 125cm");
                 sizeRepository.save(size2);
 
 
-                var size4 = new Size();
+                var size4 = new CostumeSize();
                 size4.setName_size("od 125cm do 155cm");
                 sizeRepository.save(size4);
 
-                var size5 = new Size();
+                var size5 = new CostumeSize();
                 size5.setName_size("od 155cm do 170cm");
                 sizeRepository.save(size5);
 
-                var size6 = new Size();
+                var size6 = new CostumeSize();
                 size6.setName_size("od 170cm do 185cm");
                 sizeRepository.save(size6);
 
-                var size7 = new Size();
+                var size7 = new CostumeSize();
                 size7.setName_size("od 185cm do 200cm");
                 sizeRepository.save(size7);
 
@@ -196,7 +196,7 @@ public class InsertData {
 
                 var account = new User();
                 account.setFirst_name("Adam");
-                account.setLast_name("Adam1");
+                account.setLast_name("Kowalski");
                 account.setUsername("user");
                 account.setAddress("Adam12");
                 account.setPostcode("08-110 Siedlce");
@@ -207,8 +207,8 @@ public class InsertData {
                 userRepository.flush();
 
                 var account1 = new User();
-                account1.setFirst_name("Adam");
-                account1.setLast_name("Adam1");
+                account1.setFirst_name("Admin");
+                account1.setLast_name("Admin");
                 account1.setUsername("admin");
                 account1.setAddress("Adam12");
                 account1.setPostcode("08-110 Siedlce");

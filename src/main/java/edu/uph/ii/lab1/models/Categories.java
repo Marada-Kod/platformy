@@ -4,18 +4,20 @@ package edu.uph.ii.lab1.models;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Categories")
 public class Categories {
-
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
     @NotNull
-     @Column(name = "name_costume", length = 65)
+    @Size(max = 30,min = 2)
+    @Column(name = "name_costume")
     private String name_costume;
 
 

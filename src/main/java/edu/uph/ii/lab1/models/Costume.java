@@ -4,8 +4,8 @@ package edu.uph.ii.lab1.models;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.Min;
-import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "Costume")
@@ -25,26 +25,33 @@ public class Costume {
     @Column(name = "text")
     private String text;
 
+    @Min(0)
     @NotNull
-    @Column(name = "pieces")
+    @Column(name = "pieces") //ilość
     private Integer pieces;
-
+    @Valid
+    @Min(0)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cost_id")
     private Price price;
+    @Valid
+    @Min(0)
     @NotNull
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_id")
     private CostumeType type;
-
+    @Valid
+    @Min(0)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "gender_id")
     private Gender gender;
-
+    @Valid
+    @Min(0)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "size_id")
-    private Size size;
-
+    private CostumeSize costumeSize;
+    @Valid
+    @Min(0)
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categories_id")
     private Categories categories;
@@ -105,12 +112,12 @@ public class Costume {
         this.gender = gender;
     }
 
-    public Size getSize() {
-        return size;
+    public CostumeSize getSize() {
+        return costumeSize;
     }
 
-    public void setSize(Size size) {
-        this.size = size;
+    public void setSize(CostumeSize size) {
+        this.costumeSize = size;
     }
 
     public Categories getCategories() {
@@ -124,7 +131,7 @@ public class Costume {
     public Costume() {
     }
 
-    public static Costume create(@NotNull @javax.validation.constraints.Size(min = 5,max = 15) String name, @NotNull @javax.validation.constraints.Size(min = 3,max = 255) String text, @NotNull Integer pieces,  CostumeType costumeType, Gender gender,  Price price,  Size size,  Categories categories) {
+    public static Costume create(@NotNull @javax.validation.constraints.Size(min = 5,max = 15) String name, @NotNull @javax.validation.constraints.Size(min = 3,max = 255) String text, @NotNull Integer pieces, CostumeType costumeType, Gender gender, Price price, CostumeSize size, Categories categories) {
 
         var costium = new Costume();
         costium.setName(name);

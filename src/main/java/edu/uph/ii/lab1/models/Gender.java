@@ -3,6 +3,7 @@ package edu.uph.ii.lab1.models;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -13,9 +14,12 @@ public class Gender {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @Size(max = 30,min = 2)
+
+
     @NotNull
+    @Size(max = 30,min = 2)
     @Column(name = "name_gender")
+
     private String name;
 
     public long getId() {

@@ -53,9 +53,7 @@ public class CostumeController {
     }
         @GetMapping("/account")
         public String showaccount(Model model) {
-            var lista = orderRepository.findAll();
 
-            model.addAttribute("list", lista);
             model.addAttribute("user", userRepository.findAll());
 
             return "costume/client/account";
