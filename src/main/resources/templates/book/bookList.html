@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista ksiazek</title>
+</head>
+<span>
+
+<h1>Lista</h1>
+
+
+<span th:if="${#lists.isEmpty(listaksiazek)}">Brak książek</span>
+    <div th:unless="${#lists.isEmpty(listaksiazek)}">
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Tytuł</th>
+        <th>Autor</th>
+        <th>Data</th>
+        <th>Cena</th>
+        <th>Opcje</th>
+    </tr>
+    </thead>
+    <tbody th:each="ksiazka:${listaksiazek}" th:object="${ksiazka}">
+    <tr>
+        <td>[[*{title}]]</td>
+        <td>[[*{author}]]</td>
+        <td>[[*{releaseDate}]]</td>
+        <td>[[*{price}]]</td>
+
+        <td>
+            <a th:href="@{showForm(id=*{id})}">Edytuj</a>
+        </td>
+    </tr>
+    </tbody>
+
+</table>
+         <a th:href="@{showForm}">Dodaj do tabeli</a>
+    </div><br>
+<a href="../">Powrot</a><br>
+</body>
+</html>

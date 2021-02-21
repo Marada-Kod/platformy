@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"th:href="@{/webjares/bootstrap/4.5.3/css/bootstrap.min.css}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Cena</title>
+</head>
+<body>
+<div th:replace="share/header"/>
+
+<p th:src="@{../share/header.html}">
+
+<div class="d-flex justify-content-around">
+    <img th:src="@{/images/cennik.png}"  width="328" height="206" >
+
+
+
+</div>
+<div class="d-flex justify-content-around">
+
+    <div class="col-sm-30">
+        <div class="card">
+            <div class="card-body">
+<table border="3" class="table">
+    <thead class="table-dark">
+    <tr>
+        <th>Nazwa</th>
+        <th>Koszt</th>
+        <th>Depozyt</th>
+    </tr>
+    </thead>
+<tbody th:each="cena:${cena}" th:object="${cena}">
+<tr>
+    <td>[[*{name_price}]]</td>
+    <td>[[*{cost}]]</td>
+    <td>[[*{deposit}]]</td>
+
+
+</tr>
+</tbody>
+</table>
+</div>
+        </div>
+    </div>
+</div>
+<div th:replace="share/footer :: footer"></div>
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <div th:fragment="header-css">
+        <!-- this is header-css -->
+        <link rel="stylesheet" type="text/css"
+              href="webjars/bootstrap-material-design/4.1.2/dist/css/bootstrap-material-design.css" />
+        <link rel="stylesheet" type="text/css"
+              href="statics/css/main.css" />
+    </div>
+</head>
+
+<body>
+
+<nav id="header" th:fragment="header(pageName)" class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="#">Wypożyczalnia</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${pageName eq 'index'}?'index'" href="/costume/index" >Strona główna</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${pageName eq 'kostium'}?'kostium'" href="/costume/kostium">Lista Kostiumów</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${pageName eq 'cena'}?'cena'" href="/costume/cena">Cena</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${pageName eq 'kontak'}?'kontak'" href="/costume/kontakt">Kontakt</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${pageName eq 'Logowanie'}?'logowanie'" href="/costume/logowanie">Logowanie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${pageName eq 'account'}?'account'" sec:authorize="hasRole('ADMIN') or hasRole('USER')" href="/costume/account">Moje konto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${pageName eq 'account'}?'account'" sec:authorize="hasRole('ADMIN')" href="/costume/accountall">Wszystkie Konta</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${pageName eq 'dodaj'}?'dodaj'" sec:authorize="hasRole('ADMIN')" href="/dodaj">Dodaj</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"  sec:authorize="hasRole('ADMIN') or hasRole('USER')"  href="/logout">Wyloguj</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+<!--
+<nav id="header" th:fragment="header(pageName)" class="navbar navbar-expand bg-dark flex-column flex-md-row">
+    <div class="navbar-nav-scroll">
+        <ul class="nav nav-tabs bg-dark">
+
+            <li class="nav-item">
+                <a class="nav-link" th:classappend="${pageName eq 'index'}?'index'" href="/costume/index" >Strona główna</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:classappend="${pageName eq 'kostium'}?'kostium'" href="/costume/kostium">Lista Kostiumów</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:classappend="${pageName eq 'cena'}?'cena'" href="/costume/cena">Cena</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:classappend="${pageName eq 'kontak'}?'kontak'" href="/costume/kontakt">Kontakt</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:classappend="${pageName eq 'Logowanie'}?'logowanie'" href="/costume/logowanie">Logowanie</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:classappend="${pageName eq 'account'}?'account'" href="/costume/account">Moje konto</a>
+            </li>
+            <li class="nav-item" sec:authorize="hasRole('ROLE_ADMIN')">
+                <a class="nav-link" th:classappend="${pageName eq 'vehicleForm'}?'active'"  th:href="@{/vehicleForm.html}">Nowy pojazd</a>
+            </li>
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper
+    <div class="container-fluid">
+        <!-- Toggle button
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarCenteredExample"
+                aria-controls="navbarCenteredExample"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper
+        <div
+                class="collapse navbar-collapse justify-content-center"
+                id="navbarCenteredExample"
+        >
+            <!-- Left links --
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="../costume/index">Strona Głowna</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active"href="../costume/kostium">Kostiumy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active"href="../costume/cena">Cena</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../costume/kontakt">Kontakt</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../costume/logowanie" >Logowanie</a>
+                </li>
+            </ul>
+            <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+</nav>
+</body>
+</html>

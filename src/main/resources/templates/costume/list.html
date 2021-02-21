@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <title>Lista Kostiumów</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+        <!-- Toggle button -->
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarCenteredExample"
+                aria-controls="navbarCenteredExample"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div
+                class="collapse navbar-collapse justify-content-center"
+                id="navbarCenteredExample"
+        >
+            <!-- Left links -->
+            <ul class="navbar-nav mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" href="../costume/index">    Strona Głowna</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active"href="../costume/kostium">Kostiumy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active"href="../costume/cena">Cena</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../costume/kontakt">Kontakt</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="../costume/logowanie" >Logowanie</a>
+                </li>
+            </ul>
+            <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+</nav>
+<div class="container">
+<h1>Lista Kostiumów</h1>
+
+
+<span th:if="${#lists.isEmpty(list)}">Brak książek</span>
+    <div th:unless="${#lists.isEmpty(list)}">
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>Nazwa</th>
+        <th>Typ</th>
+        <th>Typ</th>
+    </tr>
+    </thead>
+    <tbody th:each="costume:${list}" th:object="${costume}">
+    <tr>
+        <td>[[*{name}]]</td>
+        <td>[[*{type.name}]]</td>
+        <td><img src="/images/[[*{img}]]"></td>
+        <td>[[*{img}]]</td>
+
+
+    </tr>
+    </tbody>
+
+</table>
+
+    </div><br>
+
+
+
+<a href="../">Powrot</a><br>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>

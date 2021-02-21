@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Kontakt</title>
+</head>
+<body>
+    <div th:replace="share/header"/>
+
+    <p th:src="@{../share/header.html}">
+        </div>
+    <div class="d-flex justify-content-around">
+
+<img th:src="@{/images/logo.jpg}"  width="1000" height="450" >
+    </div>
+
+
+
+    <div class="card text-center">
+    <H1><b> Kontakt </b></H1><br><br><br>
+
+
+    Całoroczna Wypożyczalnia Strojów Karnawałowych i Scenicznych dla dzieci i dorosłych.<br><br>
+
+    CZYNNA od poniedziałeku do piatku<br>
+    do 9.00-do 18.00
+        <br><br>
+    Inne dni i godziny   stosownie do potrzeb klienta po wcześniejszym kontakcie telefonicznym.
+    </div>
+    <div class="card text-center">
+    <address>
+        <strong>08-110 Siedlce</strong><br>
+    ul.3-go Maja 31<br>
+        <abbr title="Telefon">Tel.</abbr> 60051068 <br>
+    mail: wypozyczalnia@gmail.com
+    </address>
+    </div>
+
+
+<div th:replace="share/footer :: footer"></div>
+</body>
+</html>
