@@ -3,7 +3,6 @@ package edu.uph.ii.lab1.models;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 
 @Entity
 @Table(name = "Status")

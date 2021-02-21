@@ -5,7 +5,6 @@ import com.sun.istack.NotNull;
 
 import javax.persistence.*;
 import javax.validation.Valid;
-import javax.validation.constraints.Min;
 
 @Entity
 @Table(name = "Costume")
@@ -25,33 +24,33 @@ public class Costume {
     @Column(name = "text")
     private String text;
 
-    @Min(0)
+
     @NotNull
     @Column(name = "pieces") //ilość
     private Integer pieces;
-    @Valid
-    @Min(0)
+
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "cost_id")
     private Price price;
-    @Valid
-    @Min(0)
+
+
     @NotNull
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "type_id")
     private CostumeType type;
-    @Valid
-    @Min(0)
+
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "gender_id")
     private Gender gender;
-    @Valid
-    @Min(0)
+
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "size_id")
     private CostumeSize costumeSize;
-    @Valid
-    @Min(0)
+
+
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "categories_id")
     private Categories categories;

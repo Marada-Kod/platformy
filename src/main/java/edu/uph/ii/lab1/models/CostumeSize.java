@@ -1,7 +1,6 @@
 package edu.uph.ii.lab1.models;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 
 @Entity

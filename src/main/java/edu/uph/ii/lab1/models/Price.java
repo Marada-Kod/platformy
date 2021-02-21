@@ -3,9 +3,6 @@ package edu.uph.ii.lab1.models;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "Price")
@@ -16,13 +13,13 @@ public class Price {
     @Column(name = "id")
     private long id_price;
     @NotNull
-    @Column(name = "deposit", length = 65) //kaucja
+    @Column(name = "deposit") //kaucja
     private Integer deposit;
     @NotNull
-    @Column(name = "cost", length = 65) //koszt
+    @Column(name = "cost") //koszt
     private Integer cost;
     @NotNull
-    @Column(name = "name_price", length = 65) //rodzaj / typ
+    @Column(name = "name_price") //rodzaj / typ
     private String name_price;
 
 

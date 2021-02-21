@@ -3,7 +3,6 @@ package edu.uph.ii.lab1.models;
 import com.sun.istack.NotNull;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -37,9 +36,8 @@ public class CostumeType {
     }
 
     public CostumeType(){
-
-        
     }
+
     public CostumeType(Integer id,@NotNull String name) {
         this.id = id;
         this.name = name;
