@@ -149,7 +149,7 @@ public class SingleCostumeController {
     }
 
     @ModelAttribute("size_list")
-    public List<Size> sizeList(){
+    public List<CostumeSize> sizeList(){
 
         return sizeRepository.findAll();
 

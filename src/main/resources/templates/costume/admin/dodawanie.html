@@ -19,7 +19,7 @@
     <div class="container">
         <div class="input-group mb-3">
             <label for="text" class="col-sm-2 col-form-label">Tytuł</label>
-            <input id="name" th:field="*{name}" type="text" class="form-control" placeholder="Username"
+            <input id="name" th:field="*{name}" type="text" class="form-control" placeholder="Nazwa Kostiumu"
                    aria-label="Username" aria-describedby="basic-addon1">
         </div><small style="color:red" th:if="${#fields.hasErrors('name')}"
                    th:each="err : ${#fields.errors('name')}"
@@ -29,7 +29,7 @@
 
             <div class="input-group mb-3">
             <label for="text" class="col-sm-2 col-form-label">Opis</label>
-            <input id="text" th:field="*{text}" type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            <input id="text" th:field="*{text}" type="text" class="form-control" placeholder="Opis" aria-label="Username" aria-describedby="basic-addon1">
             </div><small style="color:red" th:if="${#fields.hasErrors('text')}"
                    th:each="err : ${#fields.errors('text')}"
                    th:text="${err}"></small>
@@ -38,7 +38,7 @@
 
             <div class="input-group mb-3">
             <label for="text" class="col-sm-2 col-form-label">Ilość</label>
-            <input id="pieces" th:field="*{pieces}" type="text"  class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            <input id="pieces" th:field="*{pieces}" type="text"  class="form-control" placeholder="1-10000" aria-label="Username" aria-describedby="basic-addon1">
             </div> <small style="color:red" th:if="${#fields.hasErrors('pieces')}"
                    th:each="err : ${#fields.errors('pieces')}"
                    th:text="${err}" placeholder="Username" aria-describedby="basic-addon1"></small><br>
@@ -52,7 +52,7 @@
                 </option>
                 <small style="color:red" th:if="${#fields.hasErrors('type')}"
                        th:each="err : ${#fields.errors('type')}"
-                       th:text="${err}" placeholder="Username" aria-describedby="basic-addon1"></small><br>
+                       th:text="${err}"></small><br>
             </select>
 
         </div>

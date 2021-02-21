@@ -13,9 +13,12 @@ public class Gender {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @Size(max = 30,min = 2)
+
+
     @NotNull
+    @Size(max = 30,min = 2)
     @Column(name = "name_gender")
+
     private String name;
 
     public long getId() {

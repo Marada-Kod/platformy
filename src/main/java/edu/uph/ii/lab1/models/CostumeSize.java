@@ -4,15 +4,15 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-@Table(name = "size")
-public class Size {
+@Table(name = "Size")
+public class CostumeSize {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id_size;
     @NotEmpty
-    @javax.validation.constraints.Size(min = 1,max=150)
+    @javax.validation.constraints.Size(min = 1, max = 50)
     @Column(name = "name_size")
     private String name_size;
 
@@ -32,11 +32,11 @@ public class Size {
         this.name_size = name_size;
     }
 
-    public Size(long id_size, @NotEmpty String name_size) {
+    public CostumeSize(long id_size, @NotEmpty String name_size) {
         this.id_size = id_size;
         this.name_size = name_size;
     }
 
-    public Size() {
+    public CostumeSize() {
     }
 }
