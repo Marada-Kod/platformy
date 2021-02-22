@@ -98,6 +98,12 @@ public class CostumeController {
         return "costume/logowanie";
 
     }
+    @GetMapping("/rejestracja")
+    public String newuser(Model model, @ModelAttribute("user") User user){
+
+        return "/costume/rejestracja";
+
+    }
 
 //
 //    @PostMapping("/zamowienie")
@@ -113,8 +119,11 @@ public class CostumeController {
     @PostMapping("zamowienie")
     public String zam(Model model, @ModelAttribute("order") Order order){
         var status = statusRepository.findAll();
+        int cena=0;
+        var koszt = priceRepository.findAll();
+        cena=order.getHowLong();
         order.setStatus(status.get(1));
-        order.setCost(222);
+        order.setCost(cena);
         order.setUser(getLoggedUser());
         orderRepository.saveAndFlush(order);
 

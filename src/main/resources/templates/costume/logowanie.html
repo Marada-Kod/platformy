@@ -81,80 +81,12 @@
 
                         <button type="submit" class="btn btn-primary">Zaloguj</button>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 
 
-    <div class="col-sm-30">
-        <div class="card">
-            <div class="card-body">
-                <form th:action="@{sendlog}" th:method="post" th:object="${user}">
-                    <div class="form-group">
-                        Utwórz Konto
-                        <div class="form-group">
-                            <label for="first_name">Imie</label>
-                            <input type="text" class="form-control" id="first_name" th:field="*{first_name}" placeholder="Imie">
-
-                            <span  style="color:red"class="helper-text wrong" th:if="${#fields.hasErrors('first_name')}"
-                                  th:each="err : ${#fields.errors('first_name')}"
-                                  th:text="${err}"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="last_name">Nazwisko</label>
-                            <input type="text" class="form-control" id="last_name" th:field="*{last_name}" placeholder="Nazwisko">
-                            <span  style="color:red" class="helper-text wrong" th:if="${#fields.hasErrors('last_name')}"
-                                  th:each="err : ${#fields.errors('last_name')}"
-                                  th:text="${err}"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="address">Adres</label>
-                            <input type="text" class="form-control" id="address" th:field="*{address}" placeholder="Adres">
-                            <span  style="color:red" class="helper-text wrong" th:if="${#fields.hasErrors('address')}"
-                                  th:each="err : ${#fields.errors('address')}"
-                                  th:text="${err}"></span>
-                        </div>
-                        <div class="form-group">
-                            <label for="postcode">Kod Pocztowy</label>
-                            <input type="text" class="form-control" id="postcode" th:field="*{postcode}" placeholder="00-000 Miasto">
-                            <span  style="color:red" class="helper-text wrong" th:if="${#fields.hasErrors('postcode')}"
-                                  th:each="err : ${#fields.errors('postcode')}"
-                                  th:text="${err}"></span>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="username1">Nick</label>
-                            <input type="text" class="form-control" id="username1" th:field="*{username}" placeholder="Nick">
-
-                            <span  style="color:red" class="helper-text wrong" th:if="${#fields.hasErrors('username')}"
-                                   th:each="err : ${#fields.errors('username')}"
-                                   th:text="${err}"></span>
-                        </div>
-                        <div class="form-group">
-                        <label for="email">Adres Email</label>
-                        <input type="email" class="form-control" id="email"
-                               aria-describedby="podpowiedzEmail" th:field="*{email}" placeholder="Wpisz Email">
-
-                        <span  style="color:red" class="helper-text wrong" th:if="${#fields.hasErrors('email')}"
-                              th:each="err : ${#fields.errors('email')}"
-                              th:text="${err}"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="password10">Hasło</label>
-                        <input type="text" class="form-control" id="password10"  th:field="*{password}" placeholder="Wpisz hasło">
-                        <span  style="color:red" class="helper-text wrong" th:if="${#fields.hasErrors('password')}"
-                              th:each="err : ${#fields.errors('password')}"
-                              th:text="${err}"></span>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Utwórz konto</button>
-                    </div>
-                </form>
-            </div>
 
 
-</div></div></div>
+
     <div th:replace="share/footer :: footer"></div>
 </body>
 </html>

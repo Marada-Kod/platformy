@@ -83,11 +83,11 @@ public class SingleCostumeController {
 
         if ( bindingResult.hasErrors()==true) {
             model.addAttribute("User", user);
-            return "costume/logowanie";
+            return "costume/rejestracja";
         }
         userRepository.saveAndFlush(user);
         model.addAttribute("account", new User());
-        return "redirect:/costume/logowanie";
+        return "redirect:costume/rejestracja";
     }
 
 

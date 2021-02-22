@@ -33,9 +33,10 @@
 
             </tr>
             </thead>
-            <tbody th:each="order:${order}" th:object="${order}">
+            <tbody th:each="order:${order.costume}" th:object="${order}">
             <tr>
                 <td>[[*{status.name_status}]] [[*{cost}]]</td>
+                <td>[[*{costume.name}]] </td>
 
 
             </tr>

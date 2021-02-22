@@ -40,6 +40,11 @@
                     <a class="nav-link" th:classappend="${pageName eq 'Logowanie'}?'logowanie'" href="/costume/logowanie">Logowanie</a>
                 </li>
                 </div>
+                , <div sec:authorize="!isAuthenticated()">
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${pageName eq 'Rejestacja'}?'Rejestracja'" href="/costume/rejestracja">Rejestracja</a>
+                </li>
+            </div>
 
                 <li class="nav-item">
                     <a class="nav-link" th:classappend="${pageName eq 'account'}?'account'" sec:authorize="hasRole('ADMIN') or hasRole('USER')" href="/costume/account">Moje konto</a>
