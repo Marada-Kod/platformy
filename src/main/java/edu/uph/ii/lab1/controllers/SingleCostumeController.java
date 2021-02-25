@@ -34,6 +34,9 @@ public class SingleCostumeController {
     @Autowired
     private SizeRepository  sizeRepository;
 
+    @Autowired
+    private OrderRepository orderRepository;
+
     @GetMapping({"/costumee/{costume}"})
     public String home(Model model, @PathVariable Costume costume) {
 
@@ -113,6 +116,16 @@ public class SingleCostumeController {
 
         costumeRepository.deleteById(id);
         costumeRepository.flush();
+
+        return "redirect:/costume/kostium";
+
+    }
+
+    @PostMapping("delete/{id}")
+    public String delete(@PathVariable long id){
+
+        orderRepository.deleteById(id);
+        orderRepository.flush();
 
         return "redirect:/costume/kostium";
 

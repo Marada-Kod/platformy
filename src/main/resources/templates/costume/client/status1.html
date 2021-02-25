@@ -23,25 +23,40 @@
         <table class="table table-bordered">
             <thead>
             <tr>
+                <th>Status</th>
                 <th>Nazwa</th>
-                <th>Typ</th>
                 <th>Plec</th>
                 <th>Rozmiar</th>
+                <th>Koszt</th>
+                <th>Ile dni</th>
+                <th>Wysyłka odbiór</th>
+
 
 
 
 
             </tr>
             </thead>
-            <tbody th:each="order:${order.costume}" th:object="${order}">
+            <tbody th:each="orders:${order}" th:object="${order}">
             <tr>
-                <td>[[*{status.name_status}]] [[*{cost}]]</td>
-                <td>[[*{costume.name}]] </td>
+                <td>[[*{status.name_status}]]</td>
+                <td>[[*{$costume.name}]]</td>
+                <td>[[*{user.username}]] [[*{user.address}]] </td>
+               <!-- <td>[[*{$costume.typ}]]</td> typ -->
+                <td> [[*{cost}]]</td>
+                <td>[[*{howLong}]]</td>
+                 <td>  [[*{startAt}]]</td>
+
 
 
             </tr>
             </tbody>
-        </table>
+        </table><form th:action="@{/delete/{order}(order=${order.id})}" th:method="delete">
+        <input type="submit" class="btn btn-primary" value="Rezygnuje"></form>
+    </div>
+
+        <a class="btn"  th:href="@{/costume/account}">Potwierdzam zamówienie</a>
+
     </div>
 
 <div th:replace="share/footer :: footer"></div>

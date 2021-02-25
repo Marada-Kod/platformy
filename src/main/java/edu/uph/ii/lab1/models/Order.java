@@ -29,7 +29,7 @@ public class Order {
     @JoinColumn(name = "status_id")
     private Status status;
 
-    @OneToOne(fetch = FetchType.LAZY)
+   @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "costume_id")
     private Costume costume;
 
@@ -37,6 +37,7 @@ public class Order {
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     @Column(name = "startAt") //dzień zamowienia
     private LocalDate startAt;
+
     public Order() {
     }
 

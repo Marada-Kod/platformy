@@ -119,9 +119,8 @@ public class CostumeController {
     @PostMapping("zamowienie")
     public String zam(Model model, @ModelAttribute("order") Order order){
         var status = statusRepository.findAll();
-        int cena=0;
-        var koszt = priceRepository.findAll();
-        cena=order.getHowLong();
+        int cena=21313;
+       // cena=order.getHowLong()*priceRepository.findById(costumeRepository.getOne(id)); =tu ma obliczyć koszty wypożyczenia kostiumu
         order.setStatus(status.get(1));
         order.setCost(cena);
         order.setUser(getLoggedUser());
