@@ -5,7 +5,6 @@ import edu.uph.ii.lab1.models.Costume;
 import edu.uph.ii.lab1.models.Order;
 import edu.uph.ii.lab1.models.User;
 import edu.uph.ii.lab1.repository.*;
-import edu.uph.ii.lab1.service.UserService;
 import edu.uph.ii.lab1.service.UserServiceImpla;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -62,6 +61,13 @@ public class CostumeController {
         return "costume/client/account";
     }
 
+    @GetMapping("/orderss")
+    public String showorders(Model model) {
+        model.addAttribute("orders",orderRepository.findAll());
+
+        return "costume/admin/statusyzamowien";
+    }
+
     @GetMapping("/accountall")
     public String showaccountall(Model model) {
         model.addAttribute("account", userRepository.findAll());
@@ -116,11 +122,15 @@ public class CostumeController {
 //
 //    }
 
-    @PostMapping("zamowienie")
-    public String zam(Model model, @ModelAttribute("order") Order order){
+    @PostMapping("zamowienie/{id}")
+    public String zam(Model model, @ModelAttribute("order") Order order,@PathVariable Costume id){
+        order.setCostume(id);
         var status = statusRepository.findAll();
+
         int cena=21313;
-       // cena=order.getHowLong()*priceRepository.findById(costumeRepository.getOne(id)); =tu ma obliczyć koszty wypożyczenia kostiumu
+
+
+
         order.setStatus(status.get(1));
         order.setCost(cena);
         order.setUser(getLoggedUser());

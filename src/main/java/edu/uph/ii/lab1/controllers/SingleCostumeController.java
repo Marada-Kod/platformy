@@ -37,12 +37,23 @@ public class SingleCostumeController {
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private StatusRepository statusRepository;
+
+
     @GetMapping({"/costumee/{costume}"})
     public String home(Model model, @PathVariable Costume costume) {
 
         model.addAttribute("costume", costume);
         return "costume/kostium1";
     }
+    @GetMapping({"/order/{order}"})
+    public String home(Model model, @PathVariable Order order) {
+
+        return "costume/admin/status";
+    }
+
+
 
     @GetMapping({"/costumeee/{costume}"})
     public String order2(Model model, @PathVariable Costume costume,@ModelAttribute("order") Order order,BindingResult bindingResult) {
@@ -101,6 +112,16 @@ public class SingleCostumeController {
         model.addAttribute("costume",costume);
 
         return "redirect:/costume/kostium";
+
+    }
+
+    @PostMapping("orders/save/{id}")
+    public String saveordes(Model model, @ModelAttribute("orders") Order order, @PathVariable long id){
+        order.setId(id);
+        orderRepository.saveAndFlush(order);
+        model.addAttribute("order",order);
+
+        return "costume/admin/statusyzamowien";
 
     }
 
@@ -166,6 +187,12 @@ public class SingleCostumeController {
 
         return sizeRepository.findAll();
 
+    }
+
+    @ModelAttribute("status_list")
+    public List<Status> statusList() {
+
+        return statusRepository.findAll();
     }
 
 }

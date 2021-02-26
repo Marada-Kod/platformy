@@ -9,6 +9,52 @@
 <body>
 <div th:replace="share/header"/>
 
+
+<form th:action="@{orders/save/{id}(order=${order.id})}" th:method="post" th:object="${order}">
+    <div class="container">
+        <div class="row">
+            <h5>Status</h5>  <br>
+            <div class="col">
+                <table class="table table-bordered" border="1">
+                    <th>Nazwa kostiumu</th>
+                    <td>[[*{costume.name}]]</td>
+                    <th>Typ</th>
+                    <td>[[*{costume.type.name}]]</td>
+                    <th>Płeć</th>
+                    <td>[[*{costume.gender.name}]]</td>
+                    <th>Rozmiar</th>
+                    <td>[[*{costume.size.name_size}]]</td>
+                    <th>Nick</th>
+                    <td>[[*{user.username}]]</td>
+                    <th>Adres</th>
+                    <td>[[*{user.address}]] [[*{user.postcode}]]</td>
+
+                        <th>Status</th>
+                        <td>
+                            <select data-filter="true" th:field="${order.status}">
+                                <option th:each="price:${status_list}" th:value="${status.id}">
+                                    [[${status.name_status}]]
+                                </option>
+                            </select>
+                            </section>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div></div>
+        <div class="container h-100">
+            <div class="position-relative h-100">
+                <div class="position-absolute bottom-right">
+                    <input type="submit" class="btn btn-primary" value="Wyslij"></form></div>
+
+
+<div class="position-absolute top-left">
+    <form th:action="@{/deletyyyyy/{costume}(costume=${costume.id})}" th:method="delete">
+        <input type="submit" class="btn btn-primary" value="Usuń"></form>
+</div>
+
+
 <p th:src="@{../share/header.html}">
 <div th:replace="share/footer :: footer"></div>
 </body>

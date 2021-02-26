@@ -10,6 +10,54 @@
 <div th:replace="share/header"/>
 
 <p th:src="@{../share/header.html}">
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Typ</th>
+                    <th>Plec</th>
+                    <th>Rozmiar</th>
+                    <th>Użytkownik</th>
+                    <th>Adres</th>
+                    <th>Status zamówienia</th>
+                    <th>Szczegóły</th>
+
+
+
+                </tr>
+                </thead>
+                <tbody th:each="orders:${orders}" th:object="${orders}">
+                <tr>
+                    <td>[[*{costume.name}]]</td>
+                    <td>[[*{costume.type.name}]]</td>
+                    <td>[[*{costume.gender.name}]]</td>
+                    <td>[[*{costume.size.name_size}]]</td>
+                    <td>[[*{user.username}]]</td>
+                    <td>[[*{user.address}]] [[*{user.postcode}]]</td>
+                    <td>[[*{status.name_status}]]</td>
+                    <td><a class="btn"   th:href="@{/order/{order}(order=*{id})}">Zmień Status</a>
+
+
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
 <div th:replace="share/footer :: footer"></div>
 </body>
 </html>

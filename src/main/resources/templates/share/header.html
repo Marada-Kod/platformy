@@ -54,7 +54,12 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" th:classappend="${pageName eq 'dodaj'}?'dodaj'" sec:authorize="hasRole('ADMIN')" href="/dodaj">Dodaj</a>
+                    <a class="nav-link" th:classappend="${pageName eq 'orderss'}?'orderss'" sec:authorize="hasRole('ADMIN')" href="/costume/orderss">Wszystkie Zamówienia</a>
+                </li>
+
+
+                <li class="nav-item">
+                    <a class="nav-link" th:classappend="${pageName eq 'orders'}?'dodaj'" sec:authorize="hasRole('ADMIN')" href="/dodaj">Dodaj Kostium</a>
                 </li>
 
                 <li class="nav-item">

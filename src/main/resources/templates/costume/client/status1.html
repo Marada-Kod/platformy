@@ -40,9 +40,10 @@
             <tbody th:each="orders:${order}" th:object="${order}">
             <tr>
                 <td>[[*{status.name_status}]]</td>
-                <td>[[*{$costume.name}]]</td>
-                <td>[[*{user.username}]] [[*{user.address}]] </td>
-               <!-- <td>[[*{$costume.typ}]]</td> typ -->
+                <td>[[*{costume.name}]]</td>
+                <td>[[*{costume.type.name}]]</td>
+                 <td>[[*{user.username}]] [[*{user.address}]] </td>
+
                 <td> [[*{cost}]]</td>
                 <td>[[*{howLong}]]</td>
                  <td>  [[*{startAt}]]</td>
@@ -53,12 +54,12 @@
             </tbody>
         </table><form th:action="@{/delete/{order}(order=${order.id})}" th:method="delete">
         <input type="submit" class="btn btn-primary" value="Rezygnuje"></form>
+
+    <div class="position-absolute bottom-right">
+        <a   class="btn btn-primary"  th:href="@{/costume/account}">Potwierdzam zamówienie</a>
+
     </div>
-
-        <a class="btn"  th:href="@{/costume/account}">Potwierdzam zamówienie</a>
-
     </div>
-
 <div th:replace="share/footer :: footer"></div>
 
 </body>
