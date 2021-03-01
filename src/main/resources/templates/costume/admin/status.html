@@ -31,7 +31,7 @@
 
                         <th>Status</th>
                         <td>
-                            <select data-filter="true" th:field="${order.status}">
+                            <select data-filter="true" th:field="*{status}">
                                 <option th:each="status:${status_list}" th:value="${status.id}">
                                     [[${status.name_status}]]
                                 </option>

@@ -15,7 +15,6 @@ import java.util.List;
 public class SingleCostumeController {
 
 
-
     @Autowired
     private CostumeRepository costumeRepository;
     @Autowired
@@ -116,12 +115,13 @@ public class SingleCostumeController {
 
     }
 
-    @PostMapping("orders/save/{id}")
-    public String saveordes(Model model, @ModelAttribute("order") Order order, @PathVariable long id){
-        order.setId(id);
+    @PostMapping("orders/save/{order}")
+    public String saveordes(Model model, @ModelAttribute("order") Order order){
+
         orderRepository.saveAndFlush(order);
-        model.addAttribute("order",order);
-        return "redirect:/costume/admin/statusyzamowien";
+
+
+        return "redirect:/costume/orderss";
 
     }
 
