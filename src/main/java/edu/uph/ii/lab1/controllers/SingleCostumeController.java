@@ -48,8 +48,9 @@ public class SingleCostumeController {
         return "costume/kostium1";
     }
     @GetMapping({"/order/{order}"})
-    public String home(Model model, @PathVariable Order order) {
-
+    public String home(Model model, @PathVariable Order order,Status status) {
+        model.addAttribute("order", order);
+        model.addAttribute("status", status);
         return "costume/admin/status";
     }
 
@@ -116,12 +117,11 @@ public class SingleCostumeController {
     }
 
     @PostMapping("orders/save/{id}")
-    public String saveordes(Model model, @ModelAttribute("orders") Order order, @PathVariable long id){
+    public String saveordes(Model model, @ModelAttribute("order") Order order, @PathVariable long id){
         order.setId(id);
         orderRepository.saveAndFlush(order);
         model.addAttribute("order",order);
-
-        return "costume/admin/statusyzamowien";
+        return "redirect:/costume/admin/statusyzamowien";
 
     }
 

@@ -235,8 +235,8 @@ public class InsertData {
                 statusRepository.save(status4);
 
                 var status5 = new Status();
-                status4.setName_status("Zwrócone");
-                statusRepository.save(status4);
+                status5.setName_status("Zwrócone");
+                statusRepository.save(status5);
 
 
                 statusRepository.flush();

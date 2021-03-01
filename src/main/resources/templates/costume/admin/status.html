@@ -9,8 +9,7 @@
 <body>
 <div th:replace="share/header"/>
 
-
-<form th:action="@{orders/save/{id}(order=${order.id})}" th:method="post" th:object="${order}">
+<form th:action="@{/orders/save/{id}(id=${order.id})}" th:method="post" th:object="${order}">
     <div class="container">
         <div class="row">
             <h5>Status</h5>  <br>
@@ -28,11 +27,12 @@
                     <td>[[*{user.username}]]</td>
                     <th>Adres</th>
                     <td>[[*{user.address}]] [[*{user.postcode}]]</td>
+<tr>
 
                         <th>Status</th>
                         <td>
                             <select data-filter="true" th:field="${order.status}">
-                                <option th:each="price:${status_list}" th:value="${status.id}">
+                                <option th:each="status:${status_list}" th:value="${status.id}">
                                     [[${status.name_status}]]
                                 </option>
                             </select>
@@ -49,10 +49,6 @@
                     <input type="submit" class="btn btn-primary" value="Wyslij"></form></div>
 
 
-<div class="position-absolute top-left">
-    <form th:action="@{/deletyyyyy/{costume}(costume=${costume.id})}" th:method="delete">
-        <input type="submit" class="btn btn-primary" value="Usuń"></form>
-</div>
 
 
 <p th:src="@{../share/header.html}">

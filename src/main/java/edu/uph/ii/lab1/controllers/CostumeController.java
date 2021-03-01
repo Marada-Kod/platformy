@@ -3,6 +3,7 @@ package edu.uph.ii.lab1.controllers;
 
 import edu.uph.ii.lab1.models.Costume;
 import edu.uph.ii.lab1.models.Order;
+import edu.uph.ii.lab1.models.Price;
 import edu.uph.ii.lab1.models.User;
 import edu.uph.ii.lab1.repository.*;
 import edu.uph.ii.lab1.service.UserServiceImpla;
@@ -122,23 +123,16 @@ public class CostumeController {
 //
 //    }
 
-    @PostMapping("zamowienie/{id}")
-    public String zam(Model model, @ModelAttribute("order") Order order,@PathVariable Costume id){
-        order.setCostume(id);
+    @PostMapping("zamowienie/{costume}")
+    public String zam(Model model, @ModelAttribute("order") Order order,@PathVariable Costume costume){
+        order.setCostume(costume);
         var status = statusRepository.findAll();
-
-        int cena=21313;
-
-
-
+        int cena;
+        cena = (costume.getPrice().getCost() * order.getHowLong())+costume.getPrice().getDeposit();
         order.setStatus(status.get(1));
         order.setCost(cena);
         order.setUser(getLoggedUser());
         orderRepository.saveAndFlush(order);
-
-        //if(status!=null){order.setStatus(status);}
-        // costumeRepository.saveAndFlush(costume);
-        // model.addAttribute("costume",costume);
 
         return "costume/client/status1";
 

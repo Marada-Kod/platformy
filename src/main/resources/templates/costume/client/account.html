@@ -13,10 +13,14 @@
 <div th:replace="share/header"/>
 
 <p th:src="@{../share/header.html}">
+    Moje Dane:
     <div class="d-flex justify-content-around">
+
         <div class="card">
             <div class="card-content">
-<p>Zalogowany: [[${zalogowany.First_name}]] [[${zalogowany.Last_name}]]</p>
+<p>Nick [[${zalogowany.username}]]</p>
+<p>Imie i Nazwisko [[${zalogowany.First_name}]] [[${zalogowany.Last_name}]]</p>
+<p>Adres [[${zalogowany.address}]] [[${zalogowany.postcode}]]</p>
 <p>Rola: [[${zalogowany.role.roleName}]]</p>
 </div>
 </div>
@@ -31,6 +35,8 @@
         <th>Typ</th>
         <th>Plec</th>
         <th>Rozmiar</th>
+        <th>Koszt</th>
+        <th>Status Zamówienia</th>
 
 
 
@@ -39,7 +45,12 @@
     </thead>
     <tbody th:each="order:${list}" th:object="${order}">
     <tr>
-        <td>[[*{status.name_status}]] [[*{cost}]]</td>
+        <td>[[*{costume.name}]]</td>
+        <td>[[*{costume.type.name}]]</td>
+        <td>[[*{costume.gender.name}]]</td>
+        <td>[[*{costume.size.name_size}]]</td>
+        <td>[[*{cost}]]</td>
+        <td>[[*{status.name_status}]]</td>
 
     </tr>
     </tbody>
