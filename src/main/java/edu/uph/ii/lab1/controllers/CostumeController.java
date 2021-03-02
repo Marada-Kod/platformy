@@ -112,16 +112,6 @@ public class CostumeController {
 
     }
 
-//
-//    @PostMapping("/zamowienie")
-//    public String saveea(Model model, @ModelAttribute("order") Order order) {
-//        order.setUser(getLoggedUser());
-//        orderRepository.saveAndFlush(order);
-//        model.addAttribute("order", order);
-//
-//        return "costume/client/zamowienie";
-//
-//    }
 
     @PostMapping("zamowienie/{costume}")
     public String zam(Model model, @ModelAttribute("order") Order order,@PathVariable Costume costume){
@@ -129,7 +119,7 @@ public class CostumeController {
         var status = statusRepository.findAll();
         int cena;
         cena = (costume.getPrice().getCost() * order.getHowLong())+costume.getPrice().getDeposit();
-        order.setStatus(status.get(1));
+        order.setStatus(status.get(0));
         order.setCost(cena);
         order.setUser(getLoggedUser());
         orderRepository.saveAndFlush(order);

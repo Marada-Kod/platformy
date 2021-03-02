@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">>
 
 <head>
 
@@ -13,16 +14,15 @@
 <div th:replace="share/header"/>
 
 <p th:src="@{../share/header.html}">
-    Moje Dane:
+
     <div class="d-flex justify-content-around">
 
         <div class="card">
+            Moje Dane:
             <div class="card-content">
 <p>Nick [[${zalogowany.username}]]</p>
-<p>Imie i Nazwisko [[${zalogowany.First_name}]] [[${zalogowany.Last_name}]]</p>
-<p>Adres [[${zalogowany.address}]] [[${zalogowany.postcode}]]</p>
-<p>Rola: [[${zalogowany.role.roleName}]]</p>
-</div>
+<p>Imie i Nazwisko: [[${zalogowany.First_name}]] [[${zalogowany.Last_name}]]</p>
+<p>Adres: [[${zalogowany.address}]] [[${zalogowany.postcode}]]</p>
 </div>
 </div>
 </div>
@@ -31,6 +31,7 @@
 <table class="table table-bordered">
     <thead>
     <tr>
+        <th>Data Zamóweinia</th>
         <th>Nazwa</th>
         <th>Typ</th>
         <th>Plec</th>
@@ -39,12 +40,11 @@
         <th>Status Zamówienia</th>
 
 
-
-
     </tr>
     </thead>
     <tbody th:each="order:${list}" th:object="${order}">
     <tr>
+        <td>[[*{startAt}]]</td>
         <td>[[*{costume.name}]]</td>
         <td>[[*{costume.type.name}]]</td>
         <td>[[*{costume.gender.name}]]</td>

@@ -15,6 +15,7 @@ import java.util.List;
 public class SingleCostumeController {
 
 
+
     @Autowired
     private CostumeRepository costumeRepository;
     @Autowired
@@ -92,16 +93,17 @@ public class SingleCostumeController {
     }
 
 
-    @PostMapping("/costume/sendlog")
+    @PostMapping("costume/sendlog")
     public String savelog(Model model, @ModelAttribute("user") @Valid User user, BindingResult bindingResult) {
 
         if ( bindingResult.hasErrors()==true) {
             model.addAttribute("User", user);
             return "costume/rejestracja";
         }
+       //??? user.setRole();
         userRepository.saveAndFlush(user);
-        model.addAttribute("account", new User());
-        return "redirect:costume/rejestracja";
+        model.addAttribute("user", new User());
+        return "costume/logowanie";
     }
 
 

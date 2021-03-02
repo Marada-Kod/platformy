@@ -15,26 +15,32 @@ public class User implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     private long id;
+    @NotEmpty
     @NotNull
     @Size(min = 3,max = 15)
     @Column(name = "first_name")
     private String first_name;
+    @NotEmpty
     @NotNull
     @Size(min = 3,max = 15)
     @Column(name = "last_name")
     private String last_name;
+    @NotEmpty
     @NotNull
     @Size(min = 4,max = 40)
     @Column(name = "username")
     private String username;
+    @NotEmpty
     @NotNull
     @Size(min = 3,max = 15)
     @Column(name = "address")
     private String address;
+    @NotEmpty
     @NotNull
     @Size(min = 6,max = 20)
     @Column(name = "postcode")
     private String postcode;
+    @NotEmpty
     @Email
     @Column(name = "email")
     private String email;

@@ -34,17 +34,17 @@
                 <table class="table table-bordered" border="1">
 
                     <tr>
-                        <th> Nazwa</th>
-                        <td><input type="text" th:field="*{name}"></td>
+                        <th> Nazwa</th><div class="col-sm-10">
+                        <td><input type="text" th:field="*{name}" class="form-control form-control-lg"></td>
                     </tr>
                     <tr>
-                        <th>Opis</th>
-                        <td><input type="text" th:field="*{text}"></td>
+                        <th>Opis</th><div class="col-sm-10">
+                        <td><input type="text" th:field="*{text}" class="form-control form-control-lg"></td>
                     </tr>
                     <tr>
-                        <th> Dla kogo</th>
+                        <th> Dla kogo</th><div class="col-sm-10">
                         <td>
-                            <select data-filter="true" th:field="${costume.type}">
+                            <select data-filter="true" th:field="${costume.type}" class="form-control form-control-lg">
                                 <option th:each="costumeType:${type_list}" th:value="${costumeType.id}">
                                     [[${costumeType.name}]]
                                 </option>
@@ -63,9 +63,9 @@
                         </td></div>
                     </tr>
                     <tr>
-                        <th>Kategoria</th>
+                        <th>Kategoria</th><div class="col-sm-10">
                         <td>
-                            <select data-filter="true" th:field="${costume.categories}">
+                            <select data-filter="true" th:field="${costume.categories}" class="form-control form-control-lg">
                                 <option th:each="categories:${categories_list}" th:value="${categories.id}">
                                     [[${categories.name_costume}]]
                                 </option>
@@ -74,9 +74,9 @@
                     </tr>
                     <tr>
 
-                        <th>Płeć</th>
+                        <th>Płeć</th><div class="col-sm-10">
                         <td>
-                            <select data-filter="true" th:field="${costume.gender}">
+                            <select data-filter="true" th:field="${costume.gender}" class="form-control form-control-lg">
                                 <option th:each="gender:${gender_list}" th:value="${gender.id}">
                                     [[${gender.name}]]
                                 </option>
@@ -84,9 +84,9 @@
                         </td>
                     </tr>
                     <tr>
-                        <th>Rozmiar</th>
+                        <th>Rozmiar</th><div class="col-sm-10">
                         <td>
-                            <select data-filter="true" th:field="${costume.size}">
+                            <select data-filter="true" th:field="${costume.size}" class="form-control form-control-lg">
                                 <option th:each="size:${size_list}" th:value="${size.id_size}">
                                     [[${size.name_size}]]
                                 </option>
